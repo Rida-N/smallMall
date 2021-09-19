@@ -1,0 +1,1 @@
+"C:\Program Files (x86)\Tencent\微信web开发者工具\cli.bat" cloud functions deploy --e cloud1-7g6yevv97d8a3845 --n quickstartFunctions --r --project "C:\Users\Newth\WeChatProjects\smallMall" --report_start --report

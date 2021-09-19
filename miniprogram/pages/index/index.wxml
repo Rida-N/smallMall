@@ -1,0 +1,37 @@
+<view class="p_index">
+  <SearchInput></SearchInput>
+  <view class="index_swiper">
+    <swiper autoplay="{{true}}" indicator-dots="{{true}}" circular="{{true}}">
+      <swiper-item wx:for="{{swiperList}}" wx:key="goods_id">
+        <navigator>
+          <image src="{{item.image_src}}" mode="widthFix"></image>
+        </navigator>
+      </swiper-item>
+    </swiper>
+  </view>
+  <view class="index_category">
+    <navigator wx:for="{{categoryList}}" wx:key="name" url="{{item.navigator_url}}" hover-class="navigator-hover" open-type="switchTab">
+      <image class="" src="{{item.image_src}}" mode="widthFix"></image>
+    </navigator>
+  </view>
+  <view class="index_floor">
+    <view class="floor_group" wx:for="{{floorList}}" wx:key="floor_title.name" wx:for-item="itemFloor" wx:for-index="indexFloor">
+      <view class="floor_title">
+        <image src="{{itemFloor.floor_title.image_src}}" mode="widthFix"></image>
+      </view>
+      <view class="floor_items">
+        <navigator class="" wx:for="{{itemFloor.product_list}}" wx:for-item="productItem" wx:for-index="productIndex" url="{{productItem.navigator_url}}" hover-class="navigator-hover" open-type="navigate">
+          <image class="" mode="{{productIndex===0?'widthFix':'scaleToFill'}}" src="{{productItem.image_src}}"></image>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>
+<span class="iconfont icon-tuikuan"></span>
+<span class="iconfont icon-gouwuche"></span>
+<span class="iconfont icon-dingdan"></span>
+<span class="iconfont icon-shoucang"></span>
+<span class="iconfont icon-shouhuodizhi"></span>
+<span class="iconfont icon-huaban28"></span>
+<span class="iconfont icon-fenxiang"></span>
+<span class="iconfont icon-fukuan"></span>
