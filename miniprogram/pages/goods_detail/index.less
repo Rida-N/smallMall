@@ -1,3 +1,6 @@
+page{
+  padding-bottom: 90rpx;
+}
 .detail_swiper {
   swiper {
     height: 60vw;
@@ -19,7 +22,8 @@
 .goods_name_row {
   display: flex;
   border-bottom: 1px solid #ccc;
-padding: 10rpx;
+  padding: 10rpx;
+
   .goods_name {
     flex: 5;
     font-size: 30rpx;
@@ -38,7 +42,8 @@ padding: 10rpx;
     justify-content: center;
     align-items: center;
     border-left: 1px solid #ccc;
-    .icon-shoucang{
+
+    .icon-shoucang {
       color: var(--themeColor);
     }
   }
@@ -50,5 +55,41 @@ padding: 10rpx;
     font-weight: 600;
     color: var(--themeColor);
     padding: 20rpx;
+  }
+}
+
+.tool_bar {
+  display: flex;
+position: fixed;
+border-top: 1px solid #ccc;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: white;
+height: 90rpx;
+  .tool_item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .toolbar_icon {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    .icon_text{
+      font-size: 24rpx;
+    }
+  }
+
+  .toolbar_button {
+    flex: 2;
+    font-size: 30rpx;
+    &.cart{
+      background-color: #ffa300;
+    }
+    &.buy{
+      background-color: #f8554d;
+    }
   }
 }

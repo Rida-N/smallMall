@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 90rpx;
+}
 .detail_swiper swiper {
   height: 60vw;
   text-align: center;
@@ -41,4 +44,37 @@
   font-weight: 600;
   color: var(--themeColor);
   padding: 20rpx;
+}
+.tool_bar {
+  display: flex;
+  position: fixed;
+  border-top: 1px solid #ccc;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: white;
+  height: 90rpx;
+}
+.tool_bar .tool_item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tool_bar .toolbar_icon {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+.tool_bar .toolbar_icon .icon_text {
+  font-size: 24rpx;
+}
+.tool_bar .toolbar_button {
+  flex: 2;
+  font-size: 30rpx;
+}
+.tool_bar .toolbar_button.cart {
+  background-color: #ffa300;
+}
+.tool_bar .toolbar_button.buy {
+  background-color: #f8554d;
 }

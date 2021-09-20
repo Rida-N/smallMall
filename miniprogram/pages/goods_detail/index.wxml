@@ -1,13 +1,15 @@
 <view class="detail_swiper">
   <swiper indicator-dots="false" indicator-color="rgba(0,0,0,.3)" autoplay="true" circular="true">
-    <swiper-item item-id="" wx:for="{{goodsObj.pics}}" wx:key="pics_id"  bindtap = "handleImagePreview" data-url="{{item.pics_mid}}">
+    <swiper-item item-id="" wx:for="{{goodsObj.pics}}" wx:key="pics_id" bindtap="handleImagePreview" data-url="{{item.pics_mid}}">
       <image src="{{item.pics_mid}}" mode="widthFix"></image>
     </swiper-item>
   </swiper>
 </view>
 <view class="goods_price">￥{{goodsObj.goods_price}}</view>
 <view class="goods_name_row">
-  <view class="goods_name">{{goodsObj.goods_name}}{{goodsObj.goods_name}}{{goodsObj.goods_name}}{{goodsObj.goods_name}}</view>
+  <view class="goods_name">
+    {{goodsObj.goods_name}}
+  </view>
   <view class="goods_collect">
     <span class="iconfont icon-shoucang"></span>
     <view class="goods_collect_text">收藏</view>
@@ -18,4 +20,20 @@
   <view class="goods_info_content">
     <rich-text class="" nodes="{{goodsObj.goods_introduce}}"></rich-text>
   </view>
+</view>
+<view class="tool_bar">
+  <view class="tool_item toolbar_icon">
+    <span class="iconfont icon-huaban28"></span>
+    <view class="icon_text">客服</view>
+  </view>
+  <view class="tool_item toolbar_icon">
+    <span class="iconfont icon-fenxiang1"></span>
+    <view class="icon_text">分享</view>
+  </view>
+  <view class="tool_item toolbar_icon">
+    <span class="iconfont icon-gouwuche"></span>
+    <view class="icon_text">购物车</view>
+  </view>
+  <view class="tool_item toolbar_button cart">加入购物车</view>
+  <view class="tool_item toolbar_button buy">立即购买</view>
 </view>
