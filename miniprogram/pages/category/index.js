@@ -6,8 +6,8 @@ Page({
   data: {
     leftList: [],
     rightContent: [],
-    selectedIndex:0,
-    scrollTop:0,
+    selectedIndex: 0,
+    scrollTop: 0,
   },
 
   originData: [],
@@ -16,34 +16,31 @@ Page({
    */
   onLoad: function (options) {
     let cacheData = wx.getStorageSync("category");
-    if(!cacheData||(Date.now()-cacheData.time>1000*10)){
+    if (!cacheData || Date.now() - cacheData.time > 1000 * 10) {
       this.getCategoryData();
-    }else{
+    } else {
       this.originData = cacheData.data;
       this.setData({
         leftList: this.originData.map((item) => item.cat_name),
-        rightContent:this.originData[0].children
+        rightContent: this.originData[0].children,
       });
     }
   },
-  getCategoryData() {
-    request({
-      url: "categories",
-    }).then((result) => {
-      this.originData = result.data.message;
-      wx.setStorageSync("category", {time:Date.now(),data:this.originData});
-      this.setData({
-        leftList: this.originData.map((item) => item.cat_name),
-        rightContent:this.originData[0].children
-      });
+  async getCategoryData() {
+    const result = await request({url: "/categories"});
+    this.originData = result;
+    wx.setStorageSync("category", { time: Date.now(), data: this.originData });
+    this.setData({
+      leftList: this.originData.map((item) => item.cat_name),
+      rightContent: this.originData[0].children,
     });
   },
-  handleCateTap(e){
-    let {index} = e.currentTarget.dataset;
-      this.setData({
-        selectedIndex:index,
-        rightContent:this.originData[index].children,
-        scrollTop:0
-      })
-  }
+  handleCateTap(e) {
+    let { index } = e.currentTarget.dataset;
+    this.setData({
+      selectedIndex: index,
+      rightContent: this.originData[index].children,
+      scrollTop: 0,
+    });
+  },
 });

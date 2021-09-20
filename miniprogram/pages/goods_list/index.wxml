@@ -1,2 +1,16 @@
-<!--pages/goods_list/index.wxml-->
-<text>pages/goods_list/index.wxml</text>
+<SearchInput></SearchInput>
+<Tabs tabs="{{tabs}}" bindtabItemChange="handleTabItemChange">
+  <view class="tab_content">
+    <navigator class="goods_item" wx:for="{{goodsList}}" wx:key="goods_id" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+      <view class="goods_image">
+        <image src="{{item.goods_small_logo?item.goods_small_logo:defaultImage}}" mode="widthFix"></image>
+      </view>
+      <view class="goods_info">
+        <view class="goods_title">
+          {{item.goods_name}}
+        </view>
+        <view class="goods_price">￥{{item.goods_price}}</view>
+      </view>
+    </navigator>
+  </view>
+</Tabs>
