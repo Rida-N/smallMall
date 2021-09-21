@@ -85,6 +85,25 @@ page {
 .cart_main .cart_chk_row .goods_info_wrap .goods_control_wrap .goods_num_wrap .num_edit.icon {
   border: 1px solid #ccc;
 }
+.cart_main .cart_chk_row .goods_info_wrap .goods_control_wrap .goods_num_wrap .num_edit.icon.disabled {
+  background-color: #ccc;
+}
+.shopcart_empty_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+  width: 100vw;
+  color: #aaa;
+}
+.shopcart_empty_wrap .iconfont {
+  font-size: 100rpx;
+}
+.shopcart_empty_wrap .shopcart_empty {
+  padding: 40rpx;
+  font-size: 50rpx;
+}
 .cart_footer {
   height: 90rpx;
   display: flex;

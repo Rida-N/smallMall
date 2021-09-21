@@ -1,4 +1,7 @@
 // pages/cart/index.js
+
+import { showModal } from "../../utlis/asyncWx";
+
 Page({
   /**
    * 页面的初始数据
@@ -94,5 +97,46 @@ Page({
     });
     wx.setStorageSync("cart", cart);
     this.setCart(cart);
+  },
+
+  /**
+   * 购物车商品增减
+   *  1. 取得目标商品
+   *  2. 对目标商品num进行相应操作
+   *  3. 如果num为0则弹窗确认是否删除
+   *     1. 如果是，就删除该商品
+   *     2. 否则停止num-1（保留num=1）
+   *  4. 改动totalNum和totalPrice，并存入data
+   *  5. 把改动后的目标商品 存入data和cache
+   */
+  async handleNumEdit(e) {
+    let { id, operation } = e.currentTarget.dataset;
+    operation = Number(operation);
+    let { cart, totalNum, totalPrice } = this.data;
+    let tarIndex = cart.findIndex((item) => item.goods_id === id);
+    let tar = cart[tarIndex];
+    const updateNumEdit = () => {
+      if (tar.checked) {
+        totalNum += operation;
+        totalPrice += operation * tar.goods_price;
+      }
+      this.setData({
+        cart,
+        totalNum,
+        totalPrice,
+        allChecked: cart.length && cart.every((item) => item.checked),
+      });
+      wx.setStorageSync("cart", cart);
+    };
+    if (tar.num === 1 && operation === -1) {
+      let res = await showModal("您是否要删除？");
+      if (res.confirm) {
+        cart.splice(tarIndex, 1);
+        updateNumEdit();
+      }
+    } else {
+      tar.num += operation;
+      updateNumEdit();
+    }
   },
 });

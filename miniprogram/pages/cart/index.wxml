@@ -16,27 +16,39 @@
   </view>
 </view>
 <view class="cart_title">购物车</view>
-<view class="cart_main">
-  <view class="cart_chk_row" wx:for="{{cart}}" wx:key="goods_id">
-    <checkbox-group bindchange="handleItemCheckChange" data-id="{{item.goods_id}}">
-      <checkbox checked="{{item.checked}}"></checkbox>
-    </checkbox-group>
-    <navigator class="goods_image_wrap" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
-      <image class="" src="{{item.goods_small_logo}}" mode="widthFix"></image>
-    </navigator>
-    <view class="goods_info_wrap">
-      <view class="goods_title">{{item.goods_name}}</view>
-      <view class="goods_control_wrap">
-        <view class="goods_price">{{item.goods_price}}</view>
-        <view class="goods_num_wrap">
-          <view class="num_edit icon">-</view>
-          <view class="num_edit">{{item.num}}</view>
-          <view class="num_edit icon">+</view>
+<block wx:if="{{cart.length}}">
+  <view class="cart_main">
+    <view class="cart_chk_row" wx:for="{{cart}}" wx:key="goods_id">
+      <checkbox-group bindchange="handleItemCheckChange" data-id="{{item.goods_id}}">
+        <checkbox checked="{{item.checked}}"></checkbox>
+      </checkbox-group>
+      <navigator class="goods_image_wrap" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
+        <image class="" src="{{item.goods_small_logo}}" mode="widthFix"></image>
+      </navigator>
+      <view class="goods_info_wrap">
+        <view class="goods_title">{{item.goods_name}}</view>
+        <view class="goods_control_wrap">
+          <view class="goods_price">{{item.goods_price}}</view>
+          <view class="goods_num_wrap">
+            <view class="num_edit icon {{item.num===0?'disabled':''}}" bindtap="handleNumEdit" data-id="{{item.goods_id}}" data-operation="-1">
+              -
+            </view>
+            <view class="num_edit">{{item.num}}</view>
+            <view class="num_edit icon" bindtap="handleNumEdit" data-id="{{item.goods_id}}" data-operation="1">
+              +
+            </view>
+          </view>
         </view>
       </view>
     </view>
   </view>
+</block>
+<block wx:else>
+<view class="shopcart_empty_wrap">
+  <span class="iconfont icon-gouwucheweikong-01-01"></span>
+  <view class="shopcart_empty">购物车为空</view>
 </view>
+</block>
 <view class="cart_footer">
   <checkbox-group bindchange="handleAllCheckChange">
     <checkbox class="" checked="{{allChecked}}"></checkbox>

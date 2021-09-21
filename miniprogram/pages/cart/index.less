@@ -99,11 +99,33 @@ page {
 
           .num_edit.icon {
             border: 1px solid #ccc;
+
+            &.disabled {
+              background-color: #ccc;
+            }
           }
 
         }
       }
     }
+  }
+}
+
+.shopcart_empty_wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vw;
+  width: 100vw;
+  color: #aaa;
+  .iconfont {
+    font-size: 100rpx;
+  }
+
+  .shopcart_empty {
+    padding: 40rpx;
+    font-size: 50rpx;
   }
 }
 
