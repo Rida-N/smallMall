@@ -1,0 +1,156 @@
+page{
+  padding-bottom: 90rpx;
+}
+.address_btn {
+  margin: 20rpx;
+
+  button {
+    color: #0b700b;
+    font-weight: normal;
+    width: 60%;
+  }
+}
+
+.user_info_row {
+  display: flex;
+  padding: 20rpx;
+
+  .user_info {
+    flex: 6;
+  }
+
+  .user_phone {
+    flex: 3;
+    text-align: right;
+  }
+}
+
+.cart_title {
+  font-size: 30rpx;
+  padding: 20rpx;
+  border-top: 1px solid var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
+}
+
+.cart_main {
+  padding: 15rpx;
+
+  .cart_chk_row {
+    display: flex;
+    // justify-content: center;
+    // align-items: center;
+    border-bottom: 1px solid #ccc;
+
+    checkbox-group {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      checkbox {}
+    }
+
+    navigator.goods_image_wrap {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-height: 175rpx;
+
+      img {
+        width: 80%;
+      }
+    }
+
+    .goods_info_wrap {
+      flex: 5;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      padding: 0 20rpx;
+
+      .goods_title {
+        font-size: 24rpx;
+        color: #555;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+
+      .goods_control_wrap {
+        display: flex;
+        justify-content: space-between;
+
+        .goods_price {
+          font-size: 30rpx;
+          color: var(--themeColor);
+        }
+
+        .goods_num_wrap {
+          display: flex;
+
+          .num_edit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55rpx;
+            height: 55rpx;
+          }
+
+          .num_edit.icon {
+            border: 1px solid #ccc;
+          }
+
+        }
+      }
+    }
+  }
+}
+
+.cart_footer {
+  height: 90rpx;
+  display: flex;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #ccc;
+
+  checkbox-group {
+    float: 1;
+    display: flex;
+    padding: 20rpx;
+
+    checkbox {}
+
+    span {}
+  }
+
+  .total_info_wrap {
+    flex: 3;
+    text-align: right;
+    padding: 10rpx 20rpx;
+
+    .price_row {
+      padding-bottom: 7rpx;
+      span.price_text {
+        font-size: 30rpx;
+        color: var(--themeColor);
+        font-weight: 600;
+      }
+    }
+
+    .include_cartage {font-size: 24rpx;}
+  }
+
+  botton.settle {
+    color: white;
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--themeColor);
+    font-weight: 600;
+    font-size: 32rpx;
+  }
+}

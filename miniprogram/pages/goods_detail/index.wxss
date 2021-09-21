@@ -2,7 +2,7 @@ page {
   padding-bottom: 90rpx;
 }
 .detail_swiper swiper {
-  height: 60vw;
+  height: 65vw;
   text-align: center;
 }
 .detail_swiper swiper image {
@@ -64,9 +64,18 @@ page {
   display: flex;
   flex: 1;
   flex-direction: column;
+  position: relative;
 }
 .tool_bar .toolbar_icon .icon_text {
   font-size: 24rpx;
+}
+.tool_bar .toolbar_icon button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 .tool_bar .toolbar_button {
   flex: 2;
