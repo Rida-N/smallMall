@@ -18,29 +18,29 @@ Page({
 
   getSwiperList(){
     request({
-      url: "home/swiperdata",
+      url: "/home/swiperdata",
     }).then((result) => {
       this.setData({
-        swiperList: result.data.message,
+        swiperList: result,
       });
     });
   },
 
   getCartegoryList(){
     request({
-      url: "home/catitems",
+      url: "/home/catitems",
     }).then((result) => {
       this.setData({
-        categoryList: result.data.message,
+        categoryList: result,
       });
     });
   },
   getFloorList(){
     request({
-      url: "home/floordata",
+      url: "/home/floordata",
     }).then((result) => {
       this.setData({
-        floorList: result.data.message,
+        floorList: result,
       });
     });
   },

@@ -20,7 +20,7 @@
         <image src="{{itemFloor.floor_title.image_src}}" mode="widthFix"></image>
       </view>
       <view class="floor_items">
-        <navigator class="" wx:for="{{itemFloor.product_list}}" wx:for-item="productItem" wx:for-index="productIndex" url="{{productItem.navigator_url}}" hover-class="navigator-hover" open-type="navigate">
+        <navigator class="" wx:for="{{itemFloor.product_list}}" wx:for-item="productItem" wx:key="name" wx:for-index="productIndex" url="{{productItem.navigator_url}}" hover-class="navigator-hover" open-type="navigate">
           <image class="" mode="{{productIndex===0?'widthFix':'scaleToFill'}}" src="{{productItem.image_src}}"></image>
         </navigator>
       </view>
@@ -28,10 +28,7 @@
   </view>
 </view>
 <span class="iconfont icon-tuikuan"></span>
-<span class="iconfont icon-gouwuche"></span>
 <span class="iconfont icon-dingdan"></span>
-<span class="iconfont icon-shoucang"></span>
 <span class="iconfont icon-shouhuodizhi"></span>
-<span class="iconfont icon-huaban28"></span>
-<span class="iconfont icon-fenxiang"></span>
+
 <span class="iconfont icon-fukuan"></span>
