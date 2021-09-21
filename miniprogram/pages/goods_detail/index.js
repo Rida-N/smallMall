@@ -63,6 +63,7 @@ Page({
     );
     if (targetGoodsIndex === -1) {
       currentGoods.num = 1;
+      currentGoods.checked = true;
       Cart.push(currentGoods);
     } else {
       Cart[targetGoodsIndex].num++;

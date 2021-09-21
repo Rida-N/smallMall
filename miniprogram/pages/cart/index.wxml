@@ -18,8 +18,8 @@
 <view class="cart_title">购物车</view>
 <view class="cart_main">
   <view class="cart_chk_row" wx:for="{{cart}}" wx:key="goods_id">
-    <checkbox-group bindchange="">
-      <checkbox checked="false"></checkbox>
+    <checkbox-group bindchange="handleItemCheckChange" data-id="{{item.goods_id}}">
+      <checkbox checked="{{item.checked}}"></checkbox>
     </checkbox-group>
     <navigator class="goods_image_wrap">
       <image class="" src="{{item.goods_small_logo}}" mode="widthFix"></image>
@@ -38,16 +38,16 @@
   </view>
 </view>
 <view class="cart_footer">
-  <checkbox-group bindchange="">
-    <checkbox class="" checked="false"></checkbox>
+  <checkbox-group bindchange="handleAllCheckChange">
+    <checkbox class="" checked="{{allChecked}}"></checkbox>
     <span>全选</span>
   </checkbox-group>
   <view class="total_info_wrap">
     <view class="price_row">
       <span>合计</span>
-      <span class="price_text">￥999</span>
+      <span class="price_text">￥{{totalPrice}}</span>
     </view>
     <view class="include_cartage">包含运费</view>
   </view>
-  <botton class="settle">结算（2）</botton>
+  <botton class="settle">结算（{{totalNum}}）</botton>
 </view>
