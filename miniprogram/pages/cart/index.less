@@ -1,6 +1,7 @@
-page{
+page {
   padding-bottom: 90rpx;
 }
+
 .address_btn {
   margin: 20rpx;
 
@@ -37,9 +38,8 @@ page{
 
   .cart_chk_row {
     display: flex;
-    // justify-content: center;
-    // align-items: center;
     border-bottom: 1px solid #ccc;
+    overflow: hidden;
 
     checkbox-group {
       flex: 1;
@@ -115,6 +115,7 @@ page{
   bottom: 0;
   left: 0;
   border-top: 1px solid #ccc;
+  background-color: #fff;
 
   checkbox-group {
     float: 1;
@@ -133,6 +134,7 @@ page{
 
     .price_row {
       padding-bottom: 7rpx;
+
       span.price_text {
         font-size: 30rpx;
         color: var(--themeColor);
@@ -140,7 +142,9 @@ page{
       }
     }
 
-    .include_cartage {font-size: 24rpx;}
+    .include_cartage {
+      font-size: 24rpx;
+    }
   }
 
   botton.settle {

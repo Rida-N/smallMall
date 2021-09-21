@@ -21,7 +21,7 @@
     <checkbox-group bindchange="handleItemCheckChange" data-id="{{item.goods_id}}">
       <checkbox checked="{{item.checked}}"></checkbox>
     </checkbox-group>
-    <navigator class="goods_image_wrap">
+    <navigator class="goods_image_wrap" url="/pages/goods_detail/index?goods_id={{item.goods_id}}">
       <image class="" src="{{item.goods_small_logo}}" mode="widthFix"></image>
     </navigator>
     <view class="goods_info_wrap">

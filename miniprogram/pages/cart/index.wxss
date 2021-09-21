@@ -32,6 +32,7 @@ page {
 .cart_main .cart_chk_row {
   display: flex;
   border-bottom: 1px solid #ccc;
+  overflow: hidden;
 }
 .cart_main .cart_chk_row checkbox-group {
   flex: 1;
@@ -92,6 +93,7 @@ page {
   bottom: 0;
   left: 0;
   border-top: 1px solid #ccc;
+  background-color: #fff;
 }
 .cart_footer checkbox-group {
   float: 1;
