@@ -1,6 +1,6 @@
 // pages/cart/index.js
 
-import { showModal } from "../../utlis/asyncWx";
+import { showModal, showToast } from "../../utlis/asyncWx";
 
 Page({
   /**
@@ -129,7 +129,7 @@ Page({
       wx.setStorageSync("cart", cart);
     };
     if (tar.num === 1 && operation === -1) {
-      let res = await showModal("您是否要删除？");
+      let res = await showModal({ content: "您是否要删除？" });
       if (res.confirm) {
         cart.splice(tarIndex, 1);
         updateNumEdit();
@@ -138,5 +138,19 @@ Page({
       tar.num += operation;
       updateNumEdit();
     }
+  },
+  async handlePay() {
+    const { address, totalNum } = this.data;
+    if (!address.userName) {
+      await showToast({ title: "您还没有设置收货地址" });
+      return;
+    }
+    if (!totalNum) {
+      await showToast({ title: "您还没有选择商品" });
+      return;
+    }
+    wx.navigateTo({
+      url: "/pages/pay/index",
+    });
   },
 });

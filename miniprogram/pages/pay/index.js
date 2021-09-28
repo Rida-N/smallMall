@@ -1,66 +1,41 @@
 // pages/pay/index.js
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-
+    address: {},
+    cart: [],
+    totalNum: 0,
+    totalPrice: 0,
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  onShow() {
+    const address = wx.getStorageSync("address");
+    const cart = wx.getStorageSync("cart").filter((item) => item.checked) || [];
 
+    if (address) {
+      this.setData({
+        address,
+      });
+    }
+
+    this.setCart(cart);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
+  setCart(cart) {
+    let totalNum = 0;
+    let totalPrice = 0;
 
+    cart.forEach((item) => {
+      totalNum += item.num;
+      totalPrice += item.goods_price * item.num;
+    });
+
+    this.setData({
+      cart,
+      totalNum,
+      totalPrice,
+    });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

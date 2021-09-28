@@ -61,5 +61,5 @@
     </view>
     <view class="include_cartage">包含运费</view>
   </view>
-  <botton class="settle">结算（{{totalNum}}）</botton>
+  <botton class="settle" bindtap = "handlePay">结算（{{totalNum}}）</botton>
 </view>
